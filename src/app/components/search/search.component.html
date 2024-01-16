@@ -3,11 +3,11 @@
     <form class="form" [formGroup]="form">
         <mat-form-field appearance="outline">
             <mat-label>Part Number</mat-label>
-            <input matInput placeholder="275121101" formControlName="partNumber">
+            <input matInput placeholder="Digite o Part Number..." formControlName="partNumber">
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Linha</mat-label>
-            <input matInput placeholder="1" formControlName="line">
+            <input matInput placeholder="Digite a linha..." formControlName="line">
         </mat-form-field>
         <button mat-raised-button color="primary" [disabled]="!this.form.valid" (click)="onSubmit()">Pesquisar</button>
     </form>
