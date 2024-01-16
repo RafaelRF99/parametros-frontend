@@ -24,7 +24,8 @@ export class ParametrosService {
       map((parametros) => {
         const parametro = parametros.find(
           (parametro) =>
-            parametro.partNumber === partNumber && parametro.linha === linha
+            parametro.partNumber === partNumber.toLocaleLowerCase() &&
+            parametro.linha === linha
         );
         if (!parametro) {
           throw new Error('Parâmetro não existe!');
