@@ -1,0 +1,115 @@
+<div class="container">
+    <div class="part box">
+        <div>
+            <div class="gap">
+                <span>Part Number:</span>
+                <p>6003770</p>
+            </div>
+            <div class="gap">
+                <span>Linha:</span>
+                <p>4</p>
+            </div>
+        </div>
+        <div class="gap">
+            <span>Data revisão:</span>
+            <p>15/01/2024</p>
+        </div>
+        <div class="gap">
+            <span>Máquina:</span>
+            <p>Nanjing</p>
+        </div>
+        <div class="gap">
+            <span>Nome programa de corte:</span>
+            <p>6003770</p>
+        </div>
+        <div class="gap">
+            <span>Videa:</span>
+            <p>150</p>
+        </div>
+    </div>
+
+    <ng-content></ng-content>
+
+    <div class="content">
+        <div class="laser box">
+            <h2>Laser</h2>
+
+            <mat-table [dataSource]="dataSourceLaser">
+                <!-- Position Salto -->
+                <ng-container matColumnDef="salto">
+                    <mat-header-cell *matHeaderCellDef> Salto </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.salto}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Processamento -->
+                <ng-container matColumnDef="processamento">
+                    <mat-header-cell *matHeaderCellDef> Processamento </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.processamento}} </mat-cell>
+                </ng-container>
+
+                <!-- Weight Intensidade -->
+                <ng-container matColumnDef="intensidade">
+                    <mat-header-cell *matHeaderCellDef> Intensidade </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.intensidade}} </mat-cell>
+                </ng-container>
+
+                <!-- Symbol Frequência -->
+                <ng-container matColumnDef="frequencia">
+                    <mat-header-cell *matHeaderCellDef> Frequência </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.frequencia}} </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumnsLaser"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumnsLaser;"></mat-row>
+            </mat-table>
+
+        </div>
+
+        <div class="lavadora box">
+            <h2>Lavadora</h2>
+            <div class="gap">
+                <span>Temperatura:</span>
+                <p>100 ± 20</p>
+            </div>
+        </div>
+
+        <div class="vision box">
+            <h2>Vision System</h2>
+            <mat-table [dataSource]="dataSourceVision">
+                <!-- Position Superficie -->
+                <ng-container matColumnDef="superficie">
+                    <mat-header-cell *matHeaderCellDef> Superficie </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.superficie}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Metal -->
+                <ng-container matColumnDef="metal">
+                    <mat-header-cell *matHeaderCellDef> Metal </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.metal}} </mat-cell>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="raio">
+                    <mat-header-cell *matHeaderCellDef> Raio de Curvatura </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.raio}} </mat-cell>
+                </ng-container>
+
+                <!-- Symbol Tipo -->
+                <ng-container matColumnDef="tipo">
+                    <mat-header-cell *matHeaderCellDef> Tipo </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.tipo}} </mat-cell>
+                </ng-container>
+
+                <!-- Symbol Gravação -->
+                <ng-container matColumnDef="gravacao">
+                    <mat-header-cell *matHeaderCellDef> Gravação </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.gravacao}} </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumnsVision"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumnsVision;"></mat-row>
+            </mat-table>
+        </div>
+
+    </div>
+</div>

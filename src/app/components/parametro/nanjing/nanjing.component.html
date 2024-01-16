@@ -1,0 +1,73 @@
+<app-parametro>
+
+    <div class="container box">
+        <div class="content">
+            <h2>Parâmetros</h2>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!-- Position A1 -->
+                <ng-container matColumnDef="a1">
+                    <th mat-header-cell *matHeaderCellDef> A1 </th>
+                    <td mat-cell *matCellDef="let element"> {{element.a1}} </td>
+                </ng-container>
+
+                <!-- Name A2 -->
+                <ng-container matColumnDef="a2">
+                    <th mat-header-cell *matHeaderCellDef> A2 </th>
+                    <td mat-cell *matCellDef="let element"> {{element.a2}} </td>
+                </ng-container>
+
+                <!-- Weight A3 -->
+                <ng-container matColumnDef="a3">
+                    <th mat-header-cell *matHeaderCellDef> A3 </th>
+                    <td mat-cell *matCellDef="let element"> {{element.a3}} </td>
+                </ng-container>
+
+                <!-- Symbol A4 -->
+                <ng-container matColumnDef="a4">
+                    <th mat-header-cell *matHeaderCellDef> A4 </th>
+                    <td mat-cell *matCellDef="let element"> {{element.a4}} </td>
+                </ng-container>
+
+                <!-- Symbol B1 -->
+                <ng-container matColumnDef="b1">
+                    <th mat-header-cell *matHeaderCellDef> B1 </th>
+                    <td mat-cell *matCellDef="let element"> {{element.b1}} </td>
+                </ng-container>
+
+                <!-- Symbol B2 -->
+                <ng-container matColumnDef="b2">
+                    <th mat-header-cell *matHeaderCellDef> B2 </th>
+                    <td mat-cell *matCellDef="let element"> {{element.b2}} </td>
+                </ng-container>
+
+                <!-- Symbol B3 -->
+                <ng-container matColumnDef="b3">
+                    <th mat-header-cell *matHeaderCellDef> B3 </th>
+                    <td mat-cell *matCellDef="let element"> {{element.b3}} </td>
+                </ng-container>
+
+                <!-- Symbol B4 -->
+                <ng-container matColumnDef="b4">
+                    <th mat-header-cell *matHeaderCellDef> B4 </th>
+                    <td mat-cell *matCellDef="let element"> {{element.b4}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+
+        <div class="atraso">
+            <div class="gap">
+                <span>Atrasar avanço</span>
+                <p>500</p>
+            </div>
+            <div class="gap">
+                <span>Atrasar leitura <br> do espelho</span>
+                <p>1500</p>
+            </div>
+        </div>
+    </div>
+
+</app-parametro>
