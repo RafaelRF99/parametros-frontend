@@ -111,5 +111,12 @@
             </mat-table>
         </div>
 
+        <div class="rvm box" *ngIf="parametro.rvm || undefined">
+            <h2>RVM</h2>
+            <p>Raio: {{parametro.rvmRaio}}</p>
+            <p>Min: {{parametro.rvmMin}}</p>
+            <p>Max: {{parametro.rvmMax}}</p>
+        </div>
+
     </div>
 </div>

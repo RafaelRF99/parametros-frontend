@@ -31,6 +31,12 @@
         overflow-x: auto;
     }
 
+    .rvm {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+
 }
 
 mat-table {

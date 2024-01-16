@@ -28,5 +28,9 @@ export interface IParametro {
   metal: string;
   raio: string;
   tipo: string;
+  rvm: boolean;
+  rvmRaio: string;
+  rvmMin: string;
+  rvmMax: string;
   gravacao: string;
 }
