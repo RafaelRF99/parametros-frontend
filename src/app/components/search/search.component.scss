@@ -8,7 +8,6 @@
 
     .form {
         width: 100%;
-        padding: 0 3rem;
 
         display: flex;
         flex-direction: column;
@@ -27,12 +26,4 @@
         }
 
     }
-}
-
-@media (max-width: 500px) {
-    .container {
-        .form {
-            padding: 0 1.5rem;
-        }
-    }
-}
+}   

@@ -5,5 +5,6 @@
             <app-yang-guan [parametro]="parametro"></app-yang-guan>
         </div>
         <div *ngIf="parametro?.maquina === 'NJ' ">NJ</div>
+        <button mat-raised-button color="warn" *ngIf="!!parametro">CANCELAR</button>
     </div>
 </div>
