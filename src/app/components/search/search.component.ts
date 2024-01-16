@@ -29,6 +29,7 @@ export class SearchComponent {
         .filterByPartNumber(partNumber, line)
         .subscribe((parametro) => {
           this.parametroSelected.emit(parametro);
+          console.log(parametro);
         });
     }
   }

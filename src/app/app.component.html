@@ -4,7 +4,9 @@
         <div *ngIf="parametro?.maquina === 'YG' ">
             <app-yang-guan [parametro]="parametro"></app-yang-guan>
         </div>
-        <div *ngIf="parametro?.maquina === 'NJ' ">NJ</div>
+        <div *ngIf="parametro?.maquina === 'NJ' ">
+            <app-nanjing [parametro]="parametro"></app-nanjing>
+        </div>
         <button mat-raised-button color="warn" *ngIf="!!parametro">CANCELAR</button>
     </div>
 </div>
