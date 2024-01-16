@@ -1,1 +1,9 @@
-<app-search></app-search>
+<div class="container">
+    <app-search (parametroSelected)="handleTypeSelected($event)"></app-search>
+    <div class="content">
+        <div *ngIf="parametro?.maquina === 'YG' ">
+            <app-yang-guan [parametro]="parametro"></app-yang-guan>
+        </div>
+        <div *ngIf="parametro?.maquina === 'NJ' ">NJ</div>
+    </div>
+</div>

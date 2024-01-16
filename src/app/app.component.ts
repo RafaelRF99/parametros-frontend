@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IParametro } from './interfaces/IParametro';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'parametros';
+  parametro!: IParametro;
+
+  handleTypeSelected(event: any) {
+    this.parametro = event;
+  }
 }

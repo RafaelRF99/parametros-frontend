@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IParametro } from 'src/app/interfaces/IParametro';
 import { ParametrosService } from 'src/app/services/parametros.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { ParametrosService } from 'src/app/services/parametros.service';
 })
 export class SearchComponent {
   form!: FormGroup;
+  @Output() parametroSelected: EventEmitter<IParametro> = new EventEmitter();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,7 +27,9 @@ export class SearchComponent {
     if (this.form.valid) {
       this.parametroService
         .filterByPartNumber(partNumber, line)
-        .subscribe((item) => console.log(item));
+        .subscribe((parametro) => {
+          this.parametroSelected.emit(parametro);
+        });
     }
   }
 }

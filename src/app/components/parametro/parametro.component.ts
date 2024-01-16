@@ -1,25 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { ILaser } from 'src/app/interfaces/ILaser';
+import { IParametro } from 'src/app/interfaces/IParametro';
 import { IVision } from 'src/app/interfaces/IVision';
-
-const ELEMENT_DATA_VISION: IVision[] = [
-  {
-    superficie: '1º',
-    metal: 'Chromium',
-    raio: '1000/1400',
-    tipo: 'N/A',
-    gravacao: 'N/A',
-  },
-];
-
-const ELEMENT_DATA_LASER: ILaser[] = [
-  {
-    salto: '2300',
-    processamento: '2300',
-    intensidade: '100',
-    frequencia: '19500',
-  },
-];
 
 @Component({
   selector: 'app-parametro',
@@ -27,14 +9,42 @@ const ELEMENT_DATA_LASER: ILaser[] = [
   styleUrls: ['./parametro.component.scss'],
 })
 export class ParametroComponent {
+  @Input() parametro!: IParametro;
+  ELEMENT_DATA_VISION: IVision[] = [];
+  ELEMENT_DATA_LASER: ILaser[] = [];
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['parametro'] && this.parametro) {
+      this.ELEMENT_DATA_VISION = [
+        {
+          superficie: '1º',
+          metal: this.parametro.metal || '',
+          raio: this.parametro.raio || '',
+          tipo: this.parametro.tipo || '',
+          gravacao: this.parametro.gravacao || '',
+        },
+      ];
+      this.ELEMENT_DATA_LASER = [
+        {
+          salto: this.parametro.velocidadeSalto,
+          processamento: this.parametro.velocidadeProcessamento,
+          intensidade: this.parametro.intensidade,
+          frequencia: this.parametro.frequencia,
+        },
+      ];
+    }
+  }
+
   // LASER
-  dataSourceLaser = ELEMENT_DATA_LASER;
   displayedColumnsLaser: string[] = [
     'salto',
     'processamento',
     'intensidade',
     'frequencia',
   ];
+  get dataSourceLaser(): ILaser[] {
+    return this.ELEMENT_DATA_LASER;
+  }
 
   // VISION SYSTEM
   displayedColumnsVision: string[] = [
@@ -44,5 +54,8 @@ export class ParametroComponent {
     'tipo',
     'gravacao',
   ];
-  dataSourceVision = ELEMENT_DATA_VISION;
+
+  get dataSourceVision(): IVision[] {
+    return this.ELEMENT_DATA_VISION;
+  }
 }

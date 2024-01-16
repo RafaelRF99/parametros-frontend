@@ -17,6 +17,8 @@ export interface IParametro {
   velocidadeLapDireita: string;
   qtdVoltasFrontal: string;
   qtdVoltasTraseira: string;
+  pressaoLixado: string;
+  pressaoLapidado: string;
   velocidadeSalto: string;
   velocidadeProcessamento: string;
   intensidade: string;
