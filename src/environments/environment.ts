@@ -1,3 +1,3 @@
 export const environment = {
-  apiUrl: 'parametros-backend-production.up.railway.app/parametro',
+  apiUrl: 'https://parametros-backend-production.up.railway.app/parametro',
 };
