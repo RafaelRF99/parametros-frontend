@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
@@ -7,7 +8,7 @@ import { IParametro } from '../interfaces/IParametro';
   providedIn: 'root',
 })
 export class ParametrosService {
-  private readonly apiUrl = 'http://localhost:3001/parametro';
+  private readonly apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
