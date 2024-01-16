@@ -1,0 +1,30 @@
+export interface IParametro {
+  partNumber: string;
+  linha: string;
+  nomeProgramaCorte: string;
+  anguloVidea: string;
+  maquina: string;
+  dataRevisao: string;
+  tempoEnvio1: string;
+  tempoEnvio2: string;
+  atrasoEntradaBraco: string;
+  retardoVentosa: string;
+  atrasoSaidaBracoDianteira: string;
+  atrasoSaidaBracoTraseira: string;
+  tempoGiroDianteira: string;
+  tempoGiroTraseira: string;
+  velocidadeLixEsq: string;
+  velocidadeLapDireita: string;
+  qtdVoltasFrontal: string;
+  qtdVoltasTraseira: string;
+  velocidadeSalto: string;
+  velocidadeProcessamento: string;
+  intensidade: string;
+  frequencia: string;
+  temperaturaLavadora: string;
+  superficie: string;
+  metal: string;
+  raio: string;
+  tipo: string;
+  gravacao: string;
+}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ParametrosService } from 'src/app/services/parametros.service';
 
 @Component({
   selector: 'app-search',
@@ -9,7 +10,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SearchComponent {
   form!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private parametroService: ParametrosService
+  ) {
     this.form = this.formBuilder.group({
       partNumber: [null, Validators.required],
       line: [null, Validators.required],
@@ -19,7 +23,9 @@ export class SearchComponent {
   onSubmit() {
     const { partNumber, line } = this.form.value;
     if (this.form.valid) {
-      console.log('Feito', partNumber, line);
+      this.parametroService
+        .filterByPartNumber(partNumber, line)
+        .subscribe((item) => console.log(item));
     }
   }
 }
