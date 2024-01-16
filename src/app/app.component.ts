@@ -12,4 +12,8 @@ export class AppComponent {
   handleTypeSelected(event: any) {
     this.parametro = event;
   }
+
+  clear() {
+    location.reload();
+  }
 }

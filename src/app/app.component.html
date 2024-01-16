@@ -7,6 +7,6 @@
         <div *ngIf="parametro?.maquina === 'NJ' ">
             <app-nanjing [parametro]="parametro"></app-nanjing>
         </div>
-        <button mat-raised-button color="warn" *ngIf="!!parametro">CANCELAR</button>
+        <button mat-raised-button color="warn" *ngIf="!!parametro" (click)="clear()">CANCELAR</button>
     </div>
 </div>
