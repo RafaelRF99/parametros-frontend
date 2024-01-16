@@ -22,10 +22,18 @@ export class NanjingComponent {
   @Input() parametro!: IParametro;
   ELEMENT_DATA: IParametroProps[] = [];
 
+  positionFrase: string[] = [
+    'ATRASAR FECHAMENTO 1500 (±1000)',
+    'ANTECIPAR SAÍDA 50(±20)',
+    'ÂNGULO DE ROTAÇÃO',
+    'VELOCIDADE DE GIRO (± 2)',
+    'PRESSÃO DO REBOLO 7(±3) 0.5 á 2.0 (Kg)',
+  ];
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['parametro'] && this.parametro) {
-      this.ELEMENT_DATA = this.parametro.p1.map((item) => ({
-        position: item.position || '',
+      this.ELEMENT_DATA = this.parametro.p1.map((item, i) => ({
+        position: this.positionFrase[i],
         a1: item.a1 || '',
         a2: item.a2 || '',
         a3: item.a3 || '',
