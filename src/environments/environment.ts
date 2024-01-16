@@ -1,3 +1,3 @@
 export const environment = {
-  apiUrl: 'http://localhost:3001/parametro',
+  apiUrl: 'https://biblioteca-backend-production-cd43.up.railway.app/parametro',
 };
