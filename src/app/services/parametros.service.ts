@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { IParametro } from '../interfaces/IParametro';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ import { IParametro } from '../interfaces/IParametro';
 export class ParametrosService {
   private readonly apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private _snackBar: MatSnackBar) {}
 
   getAll(): Observable<IParametro[]> {
     return this.http.get<IParametro[]>(this.apiUrl);
@@ -28,6 +29,11 @@ export class ParametrosService {
             parametro.linha === linha
         );
         if (!parametro) {
+          this._snackBar.open('Parâmetro não existe', 'X', {
+            horizontalPosition: 'right',
+            verticalPosition: 'top',
+            duration: 3000,
+          });
           throw new Error('Parâmetro não existe!');
         }
         return parametro;
