@@ -16,9 +16,31 @@ export class AuthService {
     const apiAdmin = `${this.apiUrl}`;
     return this.http.post<any>(apiAdmin, { email, password }).pipe(
       tap((res) => {
-        localStorage.setItem('token', res.token);
-        this.router.navigate(['/']);
+        this.saveToken(res.token);
       })
     );
+  }
+
+  saveToken(token: string): void {
+    localStorage.setItem('token', token);
+    this.router.navigate(['/']);
+
+    const now = new Date();
+    const resetTime = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate() + 1, // Próximo dia
+      3, // horas
+      0, // minutos
+      0 // segundos
+    );
+    const timeUntilReset = resetTime.getTime() - now.getTime();
+    setTimeout(() => {
+      this.deleteToken();
+    }, timeUntilReset);
+  }
+
+  deleteToken(): void {
+    localStorage.removeItem('token');
   }
 }
