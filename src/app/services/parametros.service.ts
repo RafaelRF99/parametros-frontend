@@ -1,5 +1,5 @@
 import { environment } from './../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { IParametro } from '../interfaces/IParametro';
@@ -14,14 +14,24 @@ export class ParametrosService {
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) {}
 
   getAll(): Observable<IParametro[]> {
-    return this.http.get<IParametro[]>(this.apiUrl);
+    const headers = new HttpHeaders().set(
+      'x-access-token',
+      localStorage.getItem('token') || ''
+    );
+
+    return this.http.get<IParametro[]>(this.apiUrl, { headers });
   }
 
   filterByPartNumber(
     partNumber: string,
     linha: string
   ): Observable<IParametro> {
-    return this.http.get<IParametro[]>(this.apiUrl).pipe(
+    const headers = new HttpHeaders().set(
+      'x-access-token',
+      localStorage.getItem('token') || ''
+    );
+
+    return this.http.get<IParametro[]>(this.apiUrl, { headers }).pipe(
       map((parametros) => {
         const parametro = parametros.find(
           (parametro) =>
