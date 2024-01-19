@@ -1,0 +1,36 @@
+.container {
+    .params {
+        h2 {
+            padding-block: .2rem;
+        }
+        .content {
+            .separacao {
+
+                div {
+                    padding-block: .5rem;
+                    border-bottom: 1px solid #0005;
+                }
+
+                span {
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .qtd {
+            h2 {
+                padding-block: .2rem;
+            }
+
+            div {
+                padding-block: .5rem;
+                border-bottom: 1px solid #0005;
+            }
+
+            span {
+                font-weight: 500;
+            }
+        }
+    }
+
+}
