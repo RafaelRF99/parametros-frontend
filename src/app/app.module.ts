@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatIconModule } from '@angular/material/icon';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,6 +22,7 @@ import { LaunchComponent } from './components/parametro/launch/launch.component'
 import { NanjingLaunchComponent } from './components/parametro/launch/nanjing-launch/nanjing-launch.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AuthenticationComponent } from './pages/authentication/authentication.component';
+import { BtnOptionsComponent } from './components/btn-options/btn-options.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { AuthenticationComponent } from './pages/authentication/authentication.c
     NanjingLaunchComponent,
     HomeComponent,
     AuthenticationComponent,
+    BtnOptionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { AuthenticationComponent } from './pages/authentication/authentication.c
     HttpClientModule,
     MatSnackBarModule,
     MatAutocompleteModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
