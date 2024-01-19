@@ -27,9 +27,7 @@ export class AuthenticationComponent {
     if (this.form.valid) {
       const { email, password } = this.form.value;
 
-      this.auth.validation(email, password).subscribe((data) => {
-        console.log(data);
-      });
+      this.auth.validation(email, password).subscribe();
     }
   }
 }
