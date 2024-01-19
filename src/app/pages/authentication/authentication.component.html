@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Faça login
+        <hr>
+    </h1>
+    <div class="content">
+        <form [formGroup]="form">
+            <div class="input">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="exemplo@hotmail.com" formControlName="email">
+                    <mat-error *ngIf="form.get('email')?.errors?.['required']  && form.get('email')?.touched">
+                        *Campo obrigatório
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Senha</mat-label>
+                    <input type="password" autocomplete="current-password" matInput placeholder="123456"
+                        formControlName="password">
+                    <mat-error *ngIf="form.get('password')?.errors?.['required']  && form.get('password')?.touched">
+                        *Campo obrigatório
+                    </mat-error>
+                    <mat-error *ngIf="form.get('password')?.errors?.['minlength']  && form.get('password')?.touched">
+                        *Mínimo de 6 caracteres
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+        <button mat-raised-button color="primary" (click)="inLogin()" [disabled]="!form.valid">Enviar</button>
+    </div>
+</div>

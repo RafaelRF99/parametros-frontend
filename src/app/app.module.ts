@@ -19,6 +19,8 @@ import { YangGuanComponent } from './components/parametro/yang-guan/yang-guan.co
 import { SearchComponent } from './components/search/search.component';
 import { LaunchComponent } from './components/parametro/launch/launch.component';
 import { NanjingLaunchComponent } from './components/parametro/launch/nanjing-launch/nanjing-launch.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AuthenticationComponent } from './pages/authentication/authentication.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { NanjingLaunchComponent } from './components/parametro/launch/nanjing-la
     SearchComponent,
     LaunchComponent,
     NanjingLaunchComponent,
+    HomeComponent,
+    AuthenticationComponent,
   ],
   imports: [
     BrowserModule,
