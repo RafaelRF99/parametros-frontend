@@ -1,0 +1,54 @@
+<form class="container" [formGroup]="formPartnumber">
+    <div class="content">
+        <mat-form-field appearance="outline">
+            <mat-label>PartNumber</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="partNumber">
+            <mat-error
+                *ngIf="formPartnumber.get('partNumber')?.errors?.['required']  && formPartnumber.get('partNumber')?.touched">
+                *Campo obrigatório
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Linha</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="linha">
+            <mat-error
+                *ngIf="formPartnumber.get('linha')?.errors?.['required']  && formPartnumber.get('linha')?.touched">
+                *Linha obrigatória
+            </mat-error>
+            <mat-error
+                *ngIf="formPartnumber.get('linha')?.errors?.['maxlength']  && formPartnumber.get('linha')?.touched">
+                *Máximo de 2 caracteres
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Programa de corte</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="programaCorte">
+            <mat-error
+                *ngIf="formPartnumber.get('programaCorte')?.errors?.['required']  && formPartnumber.get('programaCorte')?.touched">
+                *Linha obrigatória
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Angulo videa</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="anguloVidea">
+            <mat-error
+                *ngIf="formPartnumber.get('anguloVidea')?.errors?.['required']  && formPartnumber.get('anguloVidea')?.touched">
+                *Linha obrigatória
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Máquina</mat-label>
+            <input type="text" matInput [formControl]="maquinaSelected" [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of maquinaOptions" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </div>
+
+    <app-nanjing-launch *ngIf="maquinaSelected.value === 'NJ'"
+        [information]="formPartnumber.value"></app-nanjing-launch>
+
+</form>

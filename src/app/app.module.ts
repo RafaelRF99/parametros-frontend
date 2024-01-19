@@ -5,6 +5,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,6 +17,8 @@ import { ParametroComponent } from './components/parametro/parametro.component';
 import { NanjingComponent } from './components/parametro/nanjing/nanjing.component';
 import { YangGuanComponent } from './components/parametro/yang-guan/yang-guan.component';
 import { SearchComponent } from './components/search/search.component';
+import { LaunchComponent } from './components/parametro/launch/launch.component';
+import { NanjingLaunchComponent } from './components/parametro/launch/nanjing-launch/nanjing-launch.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { SearchComponent } from './components/search/search.component';
     NanjingComponent,
     YangGuanComponent,
     SearchComponent,
+    LaunchComponent,
+    NanjingLaunchComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +40,7 @@ import { SearchComponent } from './components/search/search.component';
     MatButtonModule,
     HttpClientModule,
     MatSnackBarModule,
+    MatAutocompleteModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
