@@ -25,8 +25,13 @@ export class SearchComponent {
   onSubmit() {
     const { partNumber, line } = this.form.value;
     if (this.form.valid) {
+      let partNumberFilter = partNumber;
+      if (partNumber.endsWith(' ')) {
+        partNumberFilter = partNumber.slice(0, -1);
+      }
+
       this.parametroService
-        .filterByPartNumber(partNumber, line)
+        .filterByPartNumber(partNumberFilter, line)
         .subscribe((parametro) => {
           this.parametroSelected.emit(parametro);
         });

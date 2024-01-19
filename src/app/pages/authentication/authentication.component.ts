@@ -27,7 +27,9 @@ export class AuthenticationComponent {
     if (this.form.valid) {
       const { email, password } = this.form.value;
 
-      this.auth.validation(email, password).subscribe();
+      const lowercaseEmail = email.toLowerCase();
+
+      this.auth.validation(lowercaseEmail, password).subscribe();
     }
   }
 }
