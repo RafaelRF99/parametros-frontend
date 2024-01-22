@@ -17,7 +17,7 @@ export class ParametroComponent {
     if (changes['parametro'] && this.parametro) {
       this.ELEMENT_DATA_VISION = [
         {
-          superficie: '1º',
+          superficie: this.parametro.superficie || '',
           metal: this.parametro.metal || '',
           raio: this.parametro.raio || '',
           tipo: this.parametro.tipo || '',
