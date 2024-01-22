@@ -8,12 +8,7 @@
       <app-nanjing [parametro]="parametro"></app-nanjing>
     </div>
     <div class="btn">
-      <button
-        mat-raised-button
-        color="warn"
-        *ngIf="!!parametro"
-        (click)="clear()"
-      >
+      <button mat-raised-button color="warn" *ngIf="!!parametro" (click)="clear()">
         CANCELAR
       </button>
     </div>

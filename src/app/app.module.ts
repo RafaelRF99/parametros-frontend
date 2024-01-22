@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ParametroComponent } from './components/parametro/parametro.component';
 import { NanjingComponent } from './components/parametro/nanjing/nanjing.component';
@@ -23,6 +24,8 @@ import { NanjingLaunchComponent } from './components/parametro/launch/nanjing-la
 import { HomeComponent } from './pages/home/home.component';
 import { AuthenticationComponent } from './pages/authentication/authentication.component';
 import { BtnOptionsComponent } from './components/btn-options/btn-options.component';
+
+import { LancamentoComponent } from './pages/lancamento/lancamento.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,8 @@ import { BtnOptionsComponent } from './components/btn-options/btn-options.compon
     NanjingLaunchComponent,
     HomeComponent,
     AuthenticationComponent,
+    LancamentoComponent,
+    HomeComponent,
     BtnOptionsComponent,
   ],
   imports: [

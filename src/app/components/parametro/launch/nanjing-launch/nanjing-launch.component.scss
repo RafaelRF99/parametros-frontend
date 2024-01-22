@@ -1,9 +1,28 @@
-table {
-    
-    input {
-        max-width: 50px;
-        height: 50px;
+.container {
+    width: 100%;
 
-        text-align: center;
+    display: flex;
+    flex-direction: column;
+    .wrapper {
+        padding: 1rem 0;
+        overflow-x: auto;
+
+        table {
+            width: 100%;
+            max-width: none;
+        }
+
+        input {
+            max-width: 50px;
+            height: 50px;
+
+            text-align: center;
+        }
+    }
+
+    .atraso {
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
     }
 }

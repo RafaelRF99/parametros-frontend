@@ -1,24 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-
-interface partNumberProps {
-  partNumber: string;
-  linha: string;
-  programaCorte: string;
-  anguloVidea: string;
-}
-
-interface parametrosNJProps {
-  position?: string;
-  a1: string;
-  a2: string;
-  a3: string;
-  a4: string;
-  b1: string;
-  b2: string;
-  b3: string;
-  b4: string;
-}
 
 @Component({
   selector: 'app-nanjing-launch',
@@ -26,18 +7,11 @@ interface parametrosNJProps {
   styleUrls: ['./nanjing-launch.component.scss'],
 })
 export class NanjingLaunchComponent {
-  @Input() information: partNumberProps;
-
-  parametros!: FormGroup;
+  @Output() parametrosChanged = new EventEmitter<any>();
+  parametrosForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
-    this.information = {
-      partNumber: '',
-      linha: '',
-      programaCorte: '',
-      anguloVidea: '',
-    };
-    this.parametros = this.formBuilder.group({
+    this.parametrosForm = this.formBuilder.group({
       atrasarA1: [null],
       atrasarA2: [null],
       atrasarA3: [null],
@@ -56,14 +30,14 @@ export class NanjingLaunchComponent {
       anteciparB3: [null],
       anteciparB4: [null],
 
-      videaA1: [null],
-      videaA2: [null],
-      videaA3: [null],
-      videaA4: [null],
-      videaB1: [null],
-      videaB2: [null],
-      videaB3: [null],
-      videaB4: [null],
+      anguloA1: [null],
+      anguloA2: [null],
+      anguloA3: [null],
+      anguloA4: [null],
+      anguloB1: [null],
+      anguloB2: [null],
+      anguloB3: [null],
+      anguloB4: [null],
 
       velGiroA1: [null],
       velGiroA2: [null],
@@ -82,6 +56,70 @@ export class NanjingLaunchComponent {
       pressaoB2: [null],
       pressaoB3: [null],
       pressaoB4: [null],
+
+      atrasarAvanco: [null],
+      atrasarLeituraEspelho: [null],
+    });
+    this.parametrosForm.valueChanges.subscribe(() => {
+      const form = {
+        atrasarAvanco: this.parametrosForm.get('atrasarAvanco')?.value,
+        atrasarLeituraEspelho: this.parametrosForm.get('atrasarLeituraEspelho')
+          ?.value,
+        p1: [
+          {
+            atrasarA1: this.parametrosForm.get('atrasarA1')?.value,
+            atrasarA2: this.parametrosForm.get('atrasarA2')?.value,
+            atrasarA3: this.parametrosForm.get('atrasarA3')?.value,
+            atrasarA4: this.parametrosForm.get('atrasarA4')?.value,
+            atrasarB1: this.parametrosForm.get('atrasarB1')?.value,
+            atrasarB2: this.parametrosForm.get('atrasarB2')?.value,
+            atrasarB3: this.parametrosForm.get('atrasarB3')?.value,
+            atrasarB4: this.parametrosForm.get('atrasarB4')?.value,
+          },
+          {
+            anteciparA1: this.parametrosForm.get('anteciparA1')?.value,
+            anteciparA2: this.parametrosForm.get('anteciparA2')?.value,
+            anteciparA3: this.parametrosForm.get('anteciparA3')?.value,
+            anteciparA4: this.parametrosForm.get('anteciparA4')?.value,
+            anteciparB1: this.parametrosForm.get('anteciparB1')?.value,
+            anteciparB2: this.parametrosForm.get('anteciparB2')?.value,
+            anteciparB3: this.parametrosForm.get('anteciparB3')?.value,
+            anteciparB4: this.parametrosForm.get('anteciparB4')?.value,
+          },
+          {
+            anguloA1: this.parametrosForm.get('anguloA1')?.value,
+            anguloA2: this.parametrosForm.get('anguloA2')?.value,
+            anguloA3: this.parametrosForm.get('anguloA3')?.value,
+            anguloA4: this.parametrosForm.get('anguloA4')?.value,
+            anguloB1: this.parametrosForm.get('anguloB1')?.value,
+            anguloB2: this.parametrosForm.get('anguloB2')?.value,
+            anguloB3: this.parametrosForm.get('anguloB3')?.value,
+            anguloB4: this.parametrosForm.get('anguloB4')?.value,
+          },
+          {
+            velGiroA1: this.parametrosForm.get('velGiroA1')?.value,
+            velGiroA2: this.parametrosForm.get('velGiroA2')?.value,
+            velGiroA3: this.parametrosForm.get('velGiroA3')?.value,
+            velGiroA4: this.parametrosForm.get('velGiroA4')?.value,
+            velGiroB1: this.parametrosForm.get('velGiroB1')?.value,
+            velGiroB2: this.parametrosForm.get('velGiroB2')?.value,
+            velGiroB3: this.parametrosForm.get('velGiroB3')?.value,
+            velGiroB4: this.parametrosForm.get('velGiroB4')?.value,
+          },
+          {
+            pressaoA1: this.parametrosForm.get('pressaoA1')?.value,
+            pressaoA2: this.parametrosForm.get('pressaoA2')?.value,
+            pressaoA3: this.parametrosForm.get('pressaoA3')?.value,
+            pressaoA4: this.parametrosForm.get('pressaoA4')?.value,
+            pressaoB1: this.parametrosForm.get('pressaoB1')?.value,
+            pressaoB2: this.parametrosForm.get('pressaoB2')?.value,
+            pressaoB3: this.parametrosForm.get('pressaoB3')?.value,
+            pressaoB4: this.parametrosForm.get('pressaoB4')?.value,
+          },
+        ],
+      };
+
+      this.parametrosChanged.emit(form);
     });
   }
 }

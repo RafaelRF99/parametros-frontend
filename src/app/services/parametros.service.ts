@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { IParametro } from '../interfaces/IParametro';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { INJ } from '../interfaces/INJ';
 
 @Injectable({
   providedIn: 'root',
@@ -49,5 +50,9 @@ export class ParametrosService {
         return parametro;
       })
     );
+  }
+
+  create(parametro: INJ): Observable<INJ> {
+    return this.http.post<INJ>(this.apiUrl, parametro);
   }
 }
