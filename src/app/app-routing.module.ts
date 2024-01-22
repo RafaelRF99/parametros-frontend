@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthenticationComponent } from './pages/authentication/authentication.component';
+import { LancamentoComponent } from './pages/lancamento/lancamento.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'auth',
     component: AuthenticationComponent,
+  },
+  {
+    path: 'lancamento',
+    component: LancamentoComponent,
   },
 ];
 

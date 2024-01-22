@@ -1,150 +1,165 @@
-<h1>Nanjing</h1>
-<p>{{information.partNumber | uppercase}}</p>
-<table [formGroup]="parametros">
-    <tr>
-        <th> </th>
-        <th>A1</th>
-        <th>A2</th>
-        <th>A3</th>
-        <th>A4</th>
-        <th>B1</th>
-        <th>B2</th>
-        <th>B3</th>
-        <th>B4</th>
-    </tr>
-    <tr>
-        <td>ATRASAR FECHAMENTO 1500 (±1000)</td>
-        <td>
-            <input type="text" formControlName="atrasarA1">
-        </td>
-        <td>
-            <input type="text" formControlName="atrasarA2">
-        </td>
-        <td>
-            <input type="text" formControlName="atrasarA3">
-        </td>
-        <td>
-            <input type="text" formControlName="atrasarA4">
-        </td>
-        <td>
-            <input type="text" formControlName="atrasarB1">
-        </td>
-        <td>
-            <input type="text" formControlName="atrasarB2">
-        </td>
-        <td>
-            <input type="text" formControlName="atrasarB3">
-        </td>
-        <td>
-            <input type="text" formControlName="atrasarB4">
-        </td>
-    </tr>
-    <tr>
-        <td>ANTECIPAR SAÍDA 50 (± 20)</td>
-        <td>
-            <input type="text" formControlName="anteciparA1">
-        </td>
-        <td>
-            <input type="text" formControlName="anteciparA2">
-        </td>
-        <td>
-            <input type="text" formControlName="anteciparA3">
-        </td>
-        <td>
-            <input type="text" formControlName="anteciparA4">
-        </td>
-        <td>
-            <input type="text" formControlName="anteciparB1">
-        </td>
-        <td>
-            <input type="text" formControlName="anteciparB2">
-        </td>
-        <td>
-            <input type="text" formControlName="anteciparB3">
-        </td>
-        <td>
-            <input type="text" formControlName="anteciparB4">
-        </td>
-    </tr>
-    <tr>
-        <td>ÂNGULO DE ROTAÇÃO</td>
-        <td>
-            <input type="text" formControlName="videaA1">
-        </td>
-        <td>
-            <input type="text" formControlName="videaA2">
-        </td>
-        <td>
-            <input type="text" formControlName="videaA3">
-        </td>
-        <td>
-            <input type="text" formControlName="videaA4">
-        </td>
-        <td>
-            <input type="text" formControlName="videaB1">
-        </td>
-        <td>
-            <input type="text" formControlName="videaB2">
-        </td>
-        <td>
-            <input type="text" formControlName="videaB3">
-        </td>
-        <td>
-            <input type="text" formControlName="videaB4">
-        </td>
-    </tr>
-    <tr>
-        <td>VELOCIDADE DE GIRO</td>
-        <td>
-            <input type="text" formControlName="velGiroA1">
-        </td>
-        <td>
-            <input type="text" formControlName="velGiroA2">
-        </td>
-        <td>
-            <input type="text" formControlName="velGiroA3">
-        </td>
-        <td>
-            <input type="text" formControlName="velGiroA4">
-        </td>
-        <td>
-            <input type="text" formControlName="velGiroB1">
-        </td>
-        <td>
-            <input type="text" formControlName="velGiroB2">
-        </td>
-        <td>
-            <input type="text" formControlName="velGiroB3">
-        </td>
-        <td>
-            <input type="text" formControlName="velGiroB4">
-        </td>
-    </tr>
-    <tr>
-        <td>PRESSÃO DO REBOLO 7 (±3) 0.5 á 2.0 (kg)</td>
-        <td>
-            <input type="text" formControlName="pressaoA1">
-        </td>
-        <td>
-            <input type="text" formControlName="pressaoA2">
-        </td>
-        <td>
-            <input type="text" formControlName="pressaoA3">
-        </td>
-        <td>
-            <input type="text" formControlName="pressaoA4">
-        </td>
-        <td>
-            <input type="text" formControlName="pressaoB1">
-        </td>
-        <td>
-            <input type="text" formControlName="pressaoB2">
-        </td>
-        <td>
-            <input type="text" formControlName="pressaoB3">
-        </td>
-        <td>
-            <input type="text" formControlName="pressaoB4">
-        </td>
-    </tr>
-</table>
+<div class="container">
+    <form [formGroup]="parametrosForm">
+        <div class="wrapper">
+            <table>
+                <tr>
+                    <th> </th>
+                    <th>A1</th>
+                    <th>A2</th>
+                    <th>A3</th>
+                    <th>A4</th>
+                    <th>B1</th>
+                    <th>B2</th>
+                    <th>B3</th>
+                    <th>B4</th>
+                </tr>
+                <tr>
+                    <td>ATRASAR FECHAMENTO 1500 (±1000)</td>
+                    <td>
+                        <input type="text" formControlName="atrasarA1">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="atrasarA2">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="atrasarA3">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="atrasarA4">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="atrasarB1">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="atrasarB2">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="atrasarB3">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="atrasarB4">
+                    </td>
+                </tr>
+                <tr>
+                    <td>ANTECIPAR SAÍDA 50 (± 20)</td>
+                    <td>
+                        <input type="text" formControlName="anteciparA1">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="anteciparA2">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="anteciparA3">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="anteciparA4">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="anteciparB1">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="anteciparB2">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="anteciparB3">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="anteciparB4">
+                    </td>
+                </tr>
+                <tr>
+                    <td>ÂNGULO DE ROTAÇÃO</td>
+                    <td>
+                        <input type="text" formControlName="anguloA1">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="anguloA2">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="anguloA3">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="anguloA4">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="anguloB1">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="anguloB2">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="anguloB3">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="anguloB4">
+                    </td>
+                </tr>
+                <tr>
+                    <td>VELOCIDADE DE GIRO</td>
+                    <td>
+                        <input type="text" formControlName="velGiroA1">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="velGiroA2">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="velGiroA3">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="velGiroA4">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="velGiroB1">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="velGiroB2">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="velGiroB3">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="velGiroB4">
+                    </td>
+                </tr>
+                <tr>
+                    <td>PRESSÃO DO REBOLO 7 (±3) 0.5 á 2.0 (kg)</td>
+                    <td>
+                        <input type="text" formControlName="pressaoA1">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="pressaoA2">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="pressaoA3">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="pressaoA4">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="pressaoB1">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="pressaoB2">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="pressaoB3">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="pressaoB4">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="atraso">
+            <mat-form-field appearance="outline">
+                <mat-label>Atrasar avanço</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="atrasarAvanco">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Atrasar leitura do espelho</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="atrasarLeituraEspelho">
+            </mat-form-field>
+        </div>
+    </form>
+</div>

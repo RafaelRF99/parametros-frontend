@@ -21,6 +21,7 @@ import { LaunchComponent } from './components/parametro/launch/launch.component'
 import { NanjingLaunchComponent } from './components/parametro/launch/nanjing-launch/nanjing-launch.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AuthenticationComponent } from './pages/authentication/authentication.component';
+import { LancamentoComponent } from './pages/lancamento/lancamento.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AuthenticationComponent } from './pages/authentication/authentication.c
     NanjingLaunchComponent,
     HomeComponent,
     AuthenticationComponent,
+    LancamentoComponent,
   ],
   imports: [
     BrowserModule,

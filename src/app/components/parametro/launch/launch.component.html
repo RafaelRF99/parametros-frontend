@@ -1,54 +1,158 @@
 <form class="container" [formGroup]="formPartnumber">
     <div class="content">
-        <mat-form-field appearance="outline">
-            <mat-label>PartNumber</mat-label>
-            <input matInput placeholder="Digite aqui..." formControlName="partNumber">
-            <mat-error
-                *ngIf="formPartnumber.get('partNumber')?.errors?.['required']  && formPartnumber.get('partNumber')?.touched">
-                *Campo obrigatório
-            </mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Linha</mat-label>
-            <input matInput placeholder="Digite aqui..." formControlName="linha">
-            <mat-error
-                *ngIf="formPartnumber.get('linha')?.errors?.['required']  && formPartnumber.get('linha')?.touched">
-                *Linha obrigatória
-            </mat-error>
-            <mat-error
-                *ngIf="formPartnumber.get('linha')?.errors?.['maxlength']  && formPartnumber.get('linha')?.touched">
-                *Máximo de 2 caracteres
-            </mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Programa de corte</mat-label>
-            <input matInput placeholder="Digite aqui..." formControlName="programaCorte">
-            <mat-error
-                *ngIf="formPartnumber.get('programaCorte')?.errors?.['required']  && formPartnumber.get('programaCorte')?.touched">
-                *Linha obrigatória
-            </mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Angulo videa</mat-label>
-            <input matInput placeholder="Digite aqui..." formControlName="anguloVidea">
-            <mat-error
-                *ngIf="formPartnumber.get('anguloVidea')?.errors?.['required']  && formPartnumber.get('anguloVidea')?.touched">
-                *Linha obrigatória
-            </mat-error>
-        </mat-form-field>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>PartNumber</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="partNumber">
+                <mat-error
+                    *ngIf="formPartnumber.get('partNumber')?.errors?.['required']  && formPartnumber.get('partNumber')?.touched">
+                    *Campo obrigatório
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Linha</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="linha">
+                <mat-error
+                    *ngIf="formPartnumber.get('linha')?.errors?.['required']  && formPartnumber.get('linha')?.touched">
+                    *Linha obrigatória
+                </mat-error>
+                <mat-error
+                    *ngIf="formPartnumber.get('linha')?.errors?.['maxlength']  && formPartnumber.get('linha')?.touched">
+                    *Máximo de 2 caracteres
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Programa de corte</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="nomeProgramaCorte">
+                <mat-error
+                    *ngIf="formPartnumber.get('nomeProgramaCorte')?.errors?.['required']  && formPartnumber.get('nomeProgramaCorte')?.touched">
+                    *Campo obrigatória
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Angulo videa</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="anguloVidea">
+                <mat-error
+                    *ngIf="formPartnumber.get('anguloVidea')?.errors?.['required']  && formPartnumber.get('anguloVidea')?.touched">
+                    *Campo obrigatória
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Data revisão</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="dataRevisao">
+                <mat-error
+                    *ngIf="formPartnumber.get('dataRevisao')?.errors?.['required']  && formPartnumber.get('dataRevisao')?.touched">
+                    *Campo obrigatória
+                </mat-error>
+            </mat-form-field>
 
-        <mat-form-field appearance="outline">
-            <mat-label>Máquina</mat-label>
-            <input type="text" matInput [formControl]="maquinaSelected" [matAutocomplete]="auto">
-            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                <mat-option *ngFor="let option of maquinaOptions" [value]="option">
-                    {{option}}
-                </mat-option>
-            </mat-autocomplete>
-        </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Máquina</mat-label>
+                <input type="text" matInput [formControl]="maquinaSelected" [matAutocomplete]="auto">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of maquinaOptions" [value]="option">
+                        {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </div>
     </div>
 
-    <app-nanjing-launch *ngIf="maquinaSelected.value === 'NJ'"
-        [information]="formPartnumber.value"></app-nanjing-launch>
+    <div class="nj">
+        <app-nanjing-launch *ngIf="maquinaSelected.value === 'NJ'"
+            (parametrosChanged)="onParametrosChanged($event)"></app-nanjing-launch>
+    </div>
+
+    <div class="content">
+        <div class="laser">
+            <h2>Laser</h2>
+            <mat-form-field appearance="outline">
+                <mat-label>Velocidade de Salto</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="velocidadeSalto">
+                <mat-error
+                    *ngIf="formPartnumber.get('velocidadeSalto')?.errors?.['required']  && formPartnumber.get('velocidadeSalto')?.touched">
+                    *Campo obrigatória
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Velocidade de Processamento</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="velocidadeProcessamento">
+                <mat-error
+                    *ngIf="formPartnumber.get('velocidadeProcessamento')?.errors?.['required']  && formPartnumber.get('velocidadeProcessamento')?.touched">
+                    *Campo obrigatória
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Intensidade</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="intensidade">
+                <mat-error
+                    *ngIf="formPartnumber.get('intensidade')?.errors?.['required']  && formPartnumber.get('intensidade')?.touched">
+                    *Campo obrigatória
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Frequência</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="frequencia">
+                <mat-error
+                    *ngIf="formPartnumber.get('frequencia')?.errors?.['required']  && formPartnumber.get('frequencia')?.touched">
+                    *Campo obrigatória
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="temperatura">
+            <mat-form-field appearance="outline">
+                <mat-label>Temperatura</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="temperaturaLavadora">
+                <mat-error
+                    *ngIf="formPartnumber.get('temperaturaLavadora')?.errors?.['required']  && formPartnumber.get('temperaturaLavadora')?.touched">
+                    *Campo obrigatória
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="equipamento">
+            <mat-form-field appearance="outline">
+                <mat-label>Superficie de metalização</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="superficie">
+                <mat-error
+                    *ngIf="formPartnumber.get('superficie')?.errors?.['required']  && formPartnumber.get('superficie')?.touched">
+                    *Campo obrigatória
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Metal</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="metal">
+                <mat-error
+                    *ngIf="formPartnumber.get('metal')?.errors?.['required']  && formPartnumber.get('metal')?.touched">
+                    *Campo obrigatória
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Raio de curvatura</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="raio">
+                <mat-error
+                    *ngIf="formPartnumber.get('raio')?.errors?.['required']  && formPartnumber.get('raio')?.touched">
+                    *Campo obrigatória
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Tipo</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="tipo">
+                <mat-error
+                    *ngIf="formPartnumber.get('tipo')?.errors?.['required']  && formPartnumber.get('tipo')?.touched">
+                    *Campo obrigatória
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Presença de gravação</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="gravacao">
+                <mat-error
+                    *ngIf="formPartnumber.get('gravacao')?.errors?.['required']  && formPartnumber.get('gravacao')?.touched">
+                    *Campo obrigatória
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <button mat-raised-button color="primary" (click)="onSubmit()">ENVIAR</button>
 
 </form>
