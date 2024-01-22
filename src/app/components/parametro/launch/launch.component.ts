@@ -185,7 +185,7 @@ export class LaunchComponent {
       .create({
         partNumber: partNumber.toLowerCase(),
         linha,
-        nomeProgramaCorte,
+        nomeProgramaCorte: nomeProgramaCorte.toLowerCase(),
         anguloVidea,
         maquina: this.maquinaSelected.value!,
         dataRevisao,
