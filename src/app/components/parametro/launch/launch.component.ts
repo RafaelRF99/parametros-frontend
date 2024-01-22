@@ -5,7 +5,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { IParametroNJ } from 'src/app/interfaces/IParametroNJ';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { ParametrosService } from 'src/app/services/parametros.service';
 
 @Component({
@@ -17,12 +18,70 @@ export class LaunchComponent {
   maquinaSelected = new FormControl('');
   maquinaOptions: string[] = ['YG', 'NJ'];
 
-  parametroNJ!: IParametroNJ;
+  parametroNJ!: {
+    p1: [
+      {
+        atrasarA1: '';
+        atrasarA2: '';
+        atrasarA3: '';
+        atrasarA4: '';
+        atrasarB1: '';
+        atrasarB2: '';
+        atrasarB3: '';
+        atrasarB4: '';
+      },
+      {
+        anteciparA1: '';
+        anteciparA2: '';
+        anteciparA3: '';
+        anteciparA4: '';
+        anteciparB1: '';
+        anteciparB2: '';
+        anteciparB3: '';
+        anteciparB4: '';
+      },
+      {
+        anguloA1: '';
+        anguloA2: '';
+        anguloA3: '';
+        anguloA4: '';
+        anguloB1: '';
+        anguloB2: '';
+        anguloB3: '';
+        anguloB4: '';
+      },
+      {
+        velGiroA1: '';
+        velGiroA2: '';
+        velGiroA3: '';
+        velGiroA4: '';
+        velGiroB1: '';
+        velGiroB2: '';
+        velGiroB3: '';
+        velGiroB4: '';
+      },
+      {
+        pressaoA1: '';
+        pressaoA2: '';
+        pressaoA3: '';
+        pressaoA4: '';
+        pressaoB1: '';
+        pressaoB2: '';
+        pressaoB3: '';
+        pressaoB4: '';
+      }
+    ];
+    atrasarAvanco: '';
+    atrasarLeituraEspelho: '';
+  };
+
   formPartnumber!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private parametroService: ParametrosService
+    private parametroService: ParametrosService,
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {
     this.formPartnumber = this.formBuilder.group({
       partNumber: [null, Validators.required],
@@ -197,7 +256,12 @@ export class LaunchComponent {
       })
       .subscribe((parametro) => {
         try {
-          console.log('Sucesso!', parametro);
+          this.router.navigate(['/']);
+          this._snackBar.open('Parâmetro lançado!', 'X', {
+            horizontalPosition: 'right',
+            verticalPosition: 'top',
+            duration: 3000,
+          });
         } catch (error) {
           console.log('Algo errado aconteceu...', error);
         }
