@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,6 +27,7 @@ import { AuthenticationComponent } from './pages/authentication/authentication.c
 import { BtnOptionsComponent } from './components/btn-options/btn-options.component';
 
 import { LancamentoComponent } from './pages/lancamento/lancamento.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { LancamentoComponent } from './pages/lancamento/lancamento.component';
     MatSnackBarModule,
     MatAutocompleteModule,
     MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

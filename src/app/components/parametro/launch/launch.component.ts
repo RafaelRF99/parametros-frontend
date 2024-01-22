@@ -59,6 +59,7 @@ export class LaunchComponent {
       linha,
       nomeProgramaCorte,
       anguloVidea,
+      dataRevisao,
       velocidadeSalto,
       velocidadeProcessamento,
       intensidade,
@@ -128,7 +129,7 @@ export class LaunchComponent {
         nomeProgramaCorte,
         anguloVidea,
         maquina: this.maquinaSelected.value!,
-        dataRevisao: '',
+        dataRevisao,
         atrasarAvanco,
         atrasarLeituraEspelho,
         p1: [

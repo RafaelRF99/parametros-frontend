@@ -37,13 +37,13 @@
                     *Campo obrigatória
                 </mat-error>
             </mat-form-field>
+
             <mat-form-field appearance="outline">
-                <mat-label>Data revisão</mat-label>
-                <input matInput placeholder="Digite aqui..." formControlName="dataRevisao">
-                <mat-error
-                    *ngIf="formPartnumber.get('dataRevisao')?.errors?.['required']  && formPartnumber.get('dataRevisao')?.touched">
-                    *Campo obrigatória
-                </mat-error>
+                <mat-label>Data de Revisão</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dataRevisao">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
