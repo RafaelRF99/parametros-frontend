@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,7 +11,11 @@ import { AuthService } from 'src/app/services/auth.service';
 export class AuthenticationComponent {
   form!: FormGroup;
 
-  constructor(private formbuilder: FormBuilder, private auth: AuthService) {
+  constructor(
+    private formbuilder: FormBuilder,
+    private auth: AuthService,
+    private _snackBar: MatSnackBar
+  ) {
     this.form = this.formbuilder.group({
       email: [
         null,
@@ -29,7 +34,16 @@ export class AuthenticationComponent {
 
       const lowercaseEmail = email.toLowerCase();
 
-      this.auth.validation(lowercaseEmail, password).subscribe();
+      this.auth.validation(lowercaseEmail, password).subscribe(
+        (res) => {},
+        (error) => {
+          this._snackBar.open(error.error.message, 'X', {
+            horizontalPosition: 'right',
+            verticalPosition: 'top',
+            duration: 3000,
+          });
+        }
+      );
     }
   }
 }
