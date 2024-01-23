@@ -25,22 +25,23 @@ export class AuthService {
     localStorage.setItem('token', token);
     this.router.navigate(['/']);
 
-    const now = new Date();
-    const resetTime = new Date(
-      now.getFullYear(),
-      now.getMonth(),
-      now.getDate() + 1, // Próximo dia
-      3, // horas
-      0, // minutos
-      0 // segundos
-    );
-    const timeUntilReset = resetTime.getTime() - now.getTime();
     setTimeout(() => {
       this.deleteToken();
-    }, timeUntilReset);
+    }, 24 * 60 * 60 * 1000);
+  }
+
+  handleAuthenticationError(error: any): void {
+    if (
+      error &&
+      error.auth === false &&
+      error.message === 'Falha ao autenticar o token.'
+    ) {
+      this.deleteToken();
+      this.router.navigate(['/auth']);
+    }
   }
 
   deleteToken(): void {
-    localStorage.removeItem('token');
+    localStorage.clear();
   }
 }

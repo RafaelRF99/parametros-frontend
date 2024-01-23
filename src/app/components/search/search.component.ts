@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IParametro } from 'src/app/interfaces/IParametro';
+import { AuthService } from 'src/app/services/auth.service';
 import { ParametrosService } from 'src/app/services/parametros.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class SearchComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private parametroService: ParametrosService
+    private parametroService: ParametrosService,
+    private auth: AuthService
   ) {
     this.form = this.formBuilder.group({
       partNumber: [null, Validators.required],
@@ -32,10 +34,15 @@ export class SearchComponent {
 
       this.parametroService
         .filterByPartNumber(partNumberFilter, line)
-        .subscribe((parametro) => {
-          this.parametroSelected.emit(parametro);
-          console.log(new Date());
-        });
+        .subscribe(
+          (parametro) => {
+            this.parametroSelected.emit(parametro);
+            console.log(new Date());
+          },
+          (error) => {
+            this.auth.handleAuthenticationError(error.error);
+          }
+        );
     }
   }
 }
