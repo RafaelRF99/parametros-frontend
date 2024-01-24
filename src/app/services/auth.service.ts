@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,11 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
   private readonly apiUrl = environment.apiAdmin;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private tokenService: TokenService
+  ) {}
 
   validation(email: string, password: string): Observable<any> {
     const apiAdmin = `${this.apiUrl}`;
@@ -22,11 +27,11 @@ export class AuthService {
   }
 
   saveToken(token: string): void {
-    localStorage.setItem('token', token);
+    this.tokenService.change(token);
     this.router.navigate(['/']);
 
     setTimeout(() => {
-      this.deleteToken();
+      this.tokenService.delete();
     }, 24 * 60 * 60 * 1000);
   }
 
@@ -36,12 +41,8 @@ export class AuthService {
       error.auth === false &&
       error.message === 'Falha ao autenticar o token.'
     ) {
-      this.deleteToken();
+      this.tokenService.delete();
       this.router.navigate(['/auth']);
     }
-  }
-
-  deleteToken(): void {
-    localStorage.clear();
   }
 }

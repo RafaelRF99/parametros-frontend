@@ -33,6 +33,13 @@ export class SearchComponent {
       if (partNumber.endsWith(' ')) {
         partNumberFilter = partNumber.slice(0, -1);
       }
+      if (line.endsWith(' ')) {
+        lineFilter = line.slice(0, -1);
+      }
+
+      if (line.endsWith(' ')) {
+        lineFilter = line.slice(0, -1);
+      }
 
       if (line.endsWith(' ')) {
         lineFilter = line.slice(0, -1);

@@ -1,10 +1,11 @@
 import { environment } from './../../environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { IParametro } from '../interfaces/IParametro';
+import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Injectable } from '@angular/core';
+import { IParametro } from '../interfaces/IParametro';
 import { INJ } from '../interfaces/INJ';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,13 +13,16 @@ import { INJ } from '../interfaces/INJ';
 export class ParametrosService {
   private readonly apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient, private _snackBar: MatSnackBar) {}
+  constructor(
+    private http: HttpClient,
+    private _snackBar: MatSnackBar,
+    private tokenService: TokenService
+  ) {}
+
+  headers = this.tokenService.headers;
 
   getAll(): Observable<IParametro[]> {
-    const headers = new HttpHeaders().set(
-      'x-access-token',
-      localStorage.getItem('token') || ''
-    );
+    const headers = this.headers;
 
     return this.http.get<IParametro[]>(this.apiUrl, { headers });
   }
@@ -27,10 +31,7 @@ export class ParametrosService {
     partNumber: string,
     linha: string
   ): Observable<IParametro> {
-    const headers = new HttpHeaders().set(
-      'x-access-token',
-      localStorage.getItem('token') || ''
-    );
+    const headers = this.headers;
 
     return this.http.get<IParametro[]>(this.apiUrl, { headers }).pipe(
       map((parametros) => {
@@ -53,10 +54,7 @@ export class ParametrosService {
   }
 
   create(parametro: INJ): Observable<INJ> {
-    const headers = new HttpHeaders().set(
-      'x-access-token',
-      localStorage.getItem('token') || ''
-    );
+    const headers = this.headers;
 
     return this.http.post<INJ>(this.apiUrl, parametro, { headers });
   }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-btn-options',
@@ -10,14 +10,14 @@ import { AuthService } from 'src/app/services/auth.service';
 export class BtnOptionsComponent {
   isBtn: boolean = false;
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private tokenService: TokenService, private router: Router) {}
 
   handleBtn() {
     this.isBtn = !this.isBtn;
   }
 
   handleDeleta() {
-    this.auth.deleteToken();
+    this.tokenService.delete();
     this.router.navigate(['/auth']);
   }
 }
