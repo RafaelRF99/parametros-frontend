@@ -28,10 +28,12 @@ export class SearchComponent {
     const { partNumber, line } = this.form.value;
     if (this.form.valid) {
       let partNumberFilter = partNumber;
+      let lineFilter = line;
+
       if (partNumber.endsWith(' ')) {
         partNumberFilter = partNumber.slice(0, -1);
       }
-      let lineFilter = line;
+
       if (line.endsWith(' ')) {
         lineFilter = line.slice(0, -1);
       }
