@@ -31,9 +31,13 @@ export class SearchComponent {
       if (partNumber.endsWith(' ')) {
         partNumberFilter = partNumber.slice(0, -1);
       }
+      let lineFilter = line;
+      if (line.endsWith(' ')) {
+        lineFilter = line.slice(0, -1);
+      }
 
       this.parametroService
-        .filterByPartNumber(partNumberFilter, line)
+        .filterByPartNumber(partNumberFilter, lineFilter)
         .subscribe(
           (parametro) => {
             this.parametroSelected.emit(parametro);
