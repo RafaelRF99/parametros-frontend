@@ -28,12 +28,18 @@ export class SearchComponent {
     const { partNumber, line } = this.form.value;
     if (this.form.valid) {
       let partNumberFilter = partNumber;
+      let lineFilter = line;
+
       if (partNumber.endsWith(' ')) {
         partNumberFilter = partNumber.slice(0, -1);
       }
 
+      if (line.endsWith(' ')) {
+        lineFilter = line.slice(0, -1);
+      }
+
       this.parametroService
-        .filterByPartNumber(partNumberFilter, line)
+        .filterByPartNumber(partNumberFilter, lineFilter)
         .subscribe(
           (parametro) => {
             this.parametroSelected.emit(parametro);
