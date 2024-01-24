@@ -37,6 +37,10 @@ export class SearchComponent {
         lineFilter = line.slice(0, -1);
       }
 
+      if (line.endsWith(' ')) {
+        lineFilter = line.slice(0, -1);
+      }
+
       this.parametroService
         .filterByPartNumber(partNumberFilter, lineFilter)
         .subscribe(
