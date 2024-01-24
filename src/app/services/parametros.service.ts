@@ -53,6 +53,11 @@ export class ParametrosService {
   }
 
   create(parametro: INJ): Observable<INJ> {
-    return this.http.post<INJ>(this.apiUrl, parametro);
+    const headers = new HttpHeaders().set(
+      'x-access-token',
+      localStorage.getItem('token') || ''
+    );
+
+    return this.http.post<INJ>(this.apiUrl, parametro, { headers });
   }
 }
