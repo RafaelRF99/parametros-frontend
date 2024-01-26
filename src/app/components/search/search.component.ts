@@ -1,10 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Observable, map, startWith } from 'rxjs';
 import { IParametro } from 'src/app/interfaces/IParametro';
@@ -20,9 +15,8 @@ export class SearchComponent implements OnInit {
   form!: FormGroup;
   @Output() parametroSelected: EventEmitter<IParametro> = new EventEmitter();
 
-  myControl = new FormControl('');
   options: string[] = [];
-  filteredOptions!: Observable<string[]>;
+  filteredOptions!: Observable<string[]> | undefined;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -36,7 +30,7 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
+    this.filteredOptions = this.form.get('partNumber')?.valueChanges.pipe(
       startWith(''),
       map((value) => this._filter(value || ''))
     );
