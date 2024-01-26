@@ -1,6 +1,6 @@
 import { environment } from './../../environments/environment';
 import { Observable, map } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Injectable } from '@angular/core';
 import { IParametro } from '../interfaces/IParametro';
@@ -22,7 +22,10 @@ export class ParametrosService {
   headers = this.tokenService.headers;
 
   getAll(): Observable<IParametro[]> {
-    const headers = this.headers;
+    const headers = new HttpHeaders().set(
+      'x-access-token',
+      localStorage.getItem('token') || ''
+    );
 
     return this.http.get<IParametro[]>(this.apiUrl, { headers });
   }
