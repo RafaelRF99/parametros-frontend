@@ -34,7 +34,10 @@ export class ParametrosService {
     partNumber: string,
     linha: string
   ): Observable<IParametro> {
-    const headers = this.headers;
+    const headers = new HttpHeaders().set(
+      'x-access-token',
+      localStorage.getItem('token') || ''
+    );
 
     return this.http.get<IParametro[]>(this.apiUrl, { headers }).pipe(
       map((parametros) => {
@@ -57,7 +60,10 @@ export class ParametrosService {
   }
 
   create(parametro: INJ): Observable<INJ> {
-    const headers = this.headers;
+    const headers = new HttpHeaders().set(
+      'x-access-token',
+      localStorage.getItem('token') || ''
+    );
 
     return this.http.post<INJ>(this.apiUrl, parametro, { headers });
   }
