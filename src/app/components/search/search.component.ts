@@ -1,5 +1,12 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { Observable, map, startWith } from 'rxjs';
 import { IParametro } from 'src/app/interfaces/IParametro';
 import { AuthService } from 'src/app/services/auth.service';
 import { ParametrosService } from 'src/app/services/parametros.service';
@@ -9,9 +16,13 @@ import { ParametrosService } from 'src/app/services/parametros.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
   form!: FormGroup;
   @Output() parametroSelected: EventEmitter<IParametro> = new EventEmitter();
+
+  myControl = new FormControl('');
+  options: string[] = [];
+  filteredOptions!: Observable<string[]>;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -22,6 +33,28 @@ export class SearchComponent {
       partNumber: [null, Validators.required],
       line: [null, Validators.required],
     });
+  }
+
+  ngOnInit() {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map((value) => this._filter(value || ''))
+    );
+    this.parametroService.getAll().subscribe((parametro) => {
+      this.options = parametro.map((parametro) => parametro.partNumber);
+    });
+  }
+
+  onOptionSelected(event: MatAutocompleteSelectedEvent) {
+    this.form.get('partNumber')?.setValue(event.option.value);
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter((option) =>
+      option.toLowerCase().includes(filterValue)
+    );
   }
 
   onSubmit() {
