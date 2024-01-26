@@ -77,7 +77,6 @@ export class SearchComponent implements OnInit {
         .subscribe(
           (parametro) => {
             this.parametroSelected.emit(parametro);
-            console.log(new Date());
           },
           (error) => {
             this.auth.handleAuthenticationError(error.error);
