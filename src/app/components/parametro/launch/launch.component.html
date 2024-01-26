@@ -1,6 +1,6 @@
 <form class="container" [formGroup]="formPartnumber">
     <div class="content">
-        <div>
+        <div class="box">
             <mat-form-field appearance="outline">
                 <mat-label>PartNumber</mat-label>
                 <input matInput placeholder="Digite aqui..." formControlName="partNumber">
@@ -64,7 +64,7 @@
     </div>
 
     <div class="content">
-        <div class="laser">
+        <div class="laser box">
             <h2>Laser</h2>
             <mat-form-field appearance="outline">
                 <mat-label>Velocidade de Salto</mat-label>
@@ -99,7 +99,8 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <div class="temperatura">
+        <div class="temperatura box">
+            <h2>Temperatura</h2>
             <mat-form-field appearance="outline">
                 <mat-label>Temperatura</mat-label>
                 <input matInput placeholder="Digite aqui..." formControlName="temperaturaLavadora">
@@ -109,7 +110,8 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <div class="equipamento">
+        <div class="equipamento box">
+            <h2>Equipamento</h2>
             <mat-form-field appearance="outline">
                 <mat-label>Superficie de metalização</mat-label>
                 <input matInput placeholder="Digite aqui..." formControlName="superficie">
