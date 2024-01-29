@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { IParametro } from 'src/app/interfaces/IParametro';
 
 export interface IParametroProps {
@@ -18,8 +18,9 @@ export interface IParametroProps {
   templateUrl: './nanjing.component.html',
   styleUrls: ['./nanjing.component.scss'],
 })
-export class NanjingComponent {
+export class NanjingComponent implements OnInit {
   @Input() parametro!: IParametro;
+  coplanar: boolean = true;
   ELEMENT_DATA: IParametroProps[] = [];
 
   positionFrase: string[] = [
@@ -29,6 +30,8 @@ export class NanjingComponent {
     'VELOCIDADE DE GIRO (± 2)',
     'PRESSÃO DO REBOLO 7(±3) 0.5 á 2.0 (Kg)',
   ];
+
+  ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['parametro'] && this.parametro) {
@@ -43,6 +46,11 @@ export class NanjingComponent {
         b3: item.b3 || '',
         b4: item.b4 || '',
       }));
+    }
+    if (this.parametro.p2.length <= 0) {
+      this.coplanar = false;
+    } else {
+      this.coplanar = true;
     }
   }
 

@@ -70,7 +70,9 @@
             </div>
         </div>
 
-        <app-coplanar [parametro]="parametro"></app-coplanar>
+        <div *ngIf="coplanar">
+            <app-coplanar [parametro]="parametro"></app-coplanar>
+        </div>
 
     </div>
 </app-parametro>
