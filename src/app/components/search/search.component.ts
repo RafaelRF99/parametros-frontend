@@ -35,7 +35,9 @@ export class SearchComponent implements OnInit {
       map((value) => this._filter(value || ''))
     );
     this.parametroService.getAll().subscribe((parametro) => {
-      this.options = parametro.map((parametro) => parametro.partNumber);
+      this.options = parametro
+        .map((parametro) => parametro.partNumber)
+        .filter((value, index, self) => self.indexOf(value) === index);
     });
   }
 
