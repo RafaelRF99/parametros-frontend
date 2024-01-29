@@ -28,6 +28,7 @@ import { BtnOptionsComponent } from './components/btn-options/btn-options.compon
 
 import { LancamentoComponent } from './pages/lancamento/lancamento.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CoplanarComponent } from './components/parametro/nanjing/coplanar/coplanar.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     LancamentoComponent,
     HomeComponent,
     BtnOptionsComponent,
+    CoplanarComponent,
   ],
   imports: [
     BrowserModule,

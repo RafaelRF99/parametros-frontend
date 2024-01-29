@@ -1,0 +1,79 @@
+<div class="content">
+    <h2>Parameter Settings 2 - A Position SubDivide Speed</h2>
+    <table mat-table [dataSource]="dataSource">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+        <!-- Name S1 -->
+        <ng-container matColumnDef="s1">
+            <th mat-header-cell *matHeaderCellDef> S1 </th>
+            <td mat-cell *matCellDef="let element"> {{element.s1}} </td>
+        </ng-container>
+        <!-- Weight S2 -->
+        <ng-container matColumnDef="s2">
+            <th mat-header-cell *matHeaderCellDef> S2 </th>
+            <td mat-cell *matCellDef="let element"> {{element.s2}} </td>
+        </ng-container>
+        <!-- Name S3 -->
+        <ng-container matColumnDef="s3">
+            <th mat-header-cell *matHeaderCellDef> S3 </th>
+            <td mat-cell *matCellDef="let element"> {{element.s3}} </td>
+        </ng-container>
+        <!-- Name S4 -->
+        <ng-container matColumnDef="s4">
+            <th mat-header-cell *matHeaderCellDef> S4 </th>
+            <td mat-cell *matCellDef="let element"> {{element.s4}} </td>
+        </ng-container>
+        <!-- Name S5 -->
+        <ng-container matColumnDef="s5">
+            <th mat-header-cell *matHeaderCellDef> S5 </th>
+            <td mat-cell *matCellDef="let element"> {{element.s5}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <br>
+
+    <h2>Parameter Settings 2 - B Position SubDivide Speed</h2>
+    <table mat-table [dataSource]="dataSource2">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+        <!-- Name S1 -->
+        <ng-container matColumnDef="s1">
+            <th mat-header-cell *matHeaderCellDef> S1 </th>
+            <td mat-cell *matCellDef="let element"> {{element.s1}} </td>
+        </ng-container>
+        <!-- Weight S2 -->
+        <ng-container matColumnDef="s2">
+            <th mat-header-cell *matHeaderCellDef> S2 </th>
+            <td mat-cell *matCellDef="let element"> {{element.s2}} </td>
+        </ng-container>
+        <!-- Name S3 -->
+        <ng-container matColumnDef="s3">
+            <th mat-header-cell *matHeaderCellDef> S3 </th>
+            <td mat-cell *matCellDef="let element"> {{element.s3}} </td>
+        </ng-container>
+        <!-- Name S4 -->
+        <ng-container matColumnDef="s4">
+            <th mat-header-cell *matHeaderCellDef> S4 </th>
+            <td mat-cell *matCellDef="let element"> {{element.s4}} </td>
+        </ng-container>
+        <!-- Name S5 -->
+        <ng-container matColumnDef="s5">
+            <th mat-header-cell *matHeaderCellDef> S5 </th>
+            <td mat-cell *matCellDef="let element"> {{element.s5}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+    </table>
+</div>
