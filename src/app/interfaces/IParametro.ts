@@ -49,6 +49,26 @@ export interface IParametro {
       b4: string;
     }
   ];
+  p2: [
+    {
+      position?: string;
+      s1: string;
+      s2: string;
+      s3: string;
+      s4: string;
+      s5: string;
+    }
+  ];
+  p3: [
+    {
+      position?: string;
+      s1: string;
+      s2: string;
+      s3: string;
+      s4: string;
+      s5: string;
+    }
+  ];
 
   rvm: boolean;
   rvmRaio: string;
