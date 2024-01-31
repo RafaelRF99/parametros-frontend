@@ -61,6 +61,8 @@
     <div class="nj">
         <app-nanjing-launch *ngIf="maquinaSelected.value === 'NJ'"
             (parametrosChanged)="onParametrosChanged($event)"></app-nanjing-launch>
+        <app-yang-guan-launch *ngIf="maquinaSelected.value === 'YG'"
+            (parametrosChanged)="onParametrosChangedYg($event)"></app-yang-guan-launch>
     </div>
 
     <div class="content">
@@ -155,6 +157,9 @@
         </div>
     </div>
 
-    <button mat-raised-button color="primary" (click)="onSubmit()">ENVIAR</button>
+    <div class="btn">
+        <button mat-raised-button color="primary" (click)="onSubmit()">ENVIAR</button>
+        <button mat-raised-button color="warn" (click)="onBack()">CANCELAR</button>
+    </div>
 
 </form>
