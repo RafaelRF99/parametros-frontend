@@ -18,6 +18,7 @@ export interface IParametroProps {
 export class CoplanarComponent {
   @Input() parametro!: IParametro;
   ELEMENT_DATA: IParametroProps[] = [];
+  ELEMENT_DATA2: IParametroProps[] = [];
 
   positionFrase: string[] = [
     'A1 Platen Motor Angle(*)',
@@ -46,7 +47,7 @@ export class CoplanarComponent {
       }));
     }
     if (changes['parametro'] && this.parametro) {
-      this.ELEMENT_DATA = this.parametro.p3.map((item, i) => ({
+      this.ELEMENT_DATA2 = this.parametro.p3.map((item, i) => ({
         position: this.positionFrase[i],
         s1: item.s1 || '',
         s2: item.s2 || '',
@@ -64,6 +65,6 @@ export class CoplanarComponent {
 
   displayedColumns2: string[] = ['position', 's1', 's2', 's3', 's4', 's5'];
   get dataSource2(): IParametroProps[] {
-    return this.ELEMENT_DATA;
+    return this.ELEMENT_DATA2;
   }
 }
