@@ -1,0 +1,86 @@
+<div class="container">
+    <form class="content" [formGroup]="parametroForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Tempo enviar 1</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="tempoEnvio1">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Tempo enviar 2</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="tempoEnvio2">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Atraso entrada braço</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="atrasoEntradaBraco">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Retardo para ventosa</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="retardoVentosa">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Atraso saída braço (2 á 3.5) "Dianteiro"</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="atrasoSaidaBracoDianteira">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Atraso saída braço (2 á 3.5) "Traseiro"</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="atrasoSaidaBracoTraseira">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Tempo a mais de giro (2 á 3.5) "Dianteiro"</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="tempoGiroDianteira">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Tempo a mais de giro (2 á 3.5) "Traseiro"</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="tempoGiroTraseira">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Velocidade Giro Esquerda Lixa</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="velocidadeLixEsq">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Velocidade de Giro Direita Lap</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="velocidadeLapDireita">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Qtd de voltas Frontal</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="qtdVoltasFrontal">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Qtd de voltas Traseiro</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="qtdVoltasTraseira">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Pressão Lapidado</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="pressaoLixado">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Pressão Lixado</mat-label>
+            <input matInput placeholder="Digite aqui..." formControlName="pressaoLapidado">
+        </mat-form-field>
+
+        <mat-form-field class="filtro" appearance="outline">
+            <mat-label>RVM</mat-label>
+            <input type="text" placeholder="Tem Rvm?" aria-label="Number" matInput [formControl]="myControl"
+                [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of options" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+        <div class="rvm" *ngIf="myControl.value === 'Sim'">
+            <mat-form-field appearance="outline">
+                <mat-label>Rvm Raio</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="rvmRaio">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Rvm Min</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="rvmMin">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Rvm Max</mat-label>
+                <input matInput placeholder="Digite aqui..." formControlName="rvmMax">
+            </mat-form-field>
+        </div>
+    </form>
+</div>

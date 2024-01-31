@@ -1,0 +1,33 @@
+.container {
+
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+
+        .rvm {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        mat-form-field {
+            width: 40%;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .container {
+        .content {
+            flex-direction: column;
+
+            mat-form-field {
+                width: 100%;
+            }
+        }
+    }
+}

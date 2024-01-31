@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { IYG } from 'src/app/interfaces/IYG';
 import { ParametrosService } from 'src/app/services/parametros.service';
 
 @Component({
@@ -17,6 +18,8 @@ import { ParametrosService } from 'src/app/services/parametros.service';
 export class LaunchComponent {
   maquinaSelected = new FormControl('');
   maquinaOptions: string[] = ['YG', 'NJ'];
+
+  parametroYG!: IYG;
 
   parametroNJ!: {
     p1: [
@@ -110,6 +113,10 @@ export class LaunchComponent {
 
   onParametrosChanged(parametros: any) {
     this.parametroNJ = parametros;
+  }
+
+  onParametrosChangedYg(parametros: any) {
+    this.parametroYG = parametros;
   }
 
   onSubmit() {
@@ -268,5 +275,100 @@ export class LaunchComponent {
           }
         });
     }
+    if (this.formPartnumber.valid && this.maquinaSelected.value === 'YG') {
+      const {
+        partNumber,
+        linha,
+        nomeProgramaCorte,
+        anguloVidea,
+        dataRevisao,
+        velocidadeSalto,
+        velocidadeProcessamento,
+        intensidade,
+        frequencia,
+        temperaturaLavadora,
+        superficie,
+        metal,
+        raio,
+        tipo,
+        gravacao,
+      } = this.formPartnumber.value;
+      const {
+        tempoEnvio1,
+        tempoEnvio2,
+        atrasoEntradaBraco,
+        retardoVentosa,
+        atrasoSaidaBracoDianteira,
+        atrasoSaidaBracoTraseira,
+        tempoGiroDianteira,
+        tempoGiroTraseira,
+        velocidadeLixEsq,
+        velocidadeLapDireita,
+        qtdVoltasFrontal,
+        qtdVoltasTraseira,
+        pressaoLixado,
+        pressaoLapidado,
+        rvm,
+        rvmRaio,
+        rvmMin,
+        rvmMax,
+      } = this.parametroYG;
+      this.parametroService
+        .createYG({
+          partNumber: partNumber.toLowerCase(),
+          linha,
+          nomeProgramaCorte: nomeProgramaCorte.toLowerCase(),
+          anguloVidea,
+          maquina: this.maquinaSelected.value!,
+          dataRevisao,
+
+          tempoEnvio1,
+          tempoEnvio2,
+          atrasoEntradaBraco,
+          retardoVentosa,
+          atrasoSaidaBracoDianteira,
+          atrasoSaidaBracoTraseira,
+          tempoGiroDianteira,
+          tempoGiroTraseira,
+          velocidadeLixEsq,
+          velocidadeLapDireita,
+          qtdVoltasFrontal,
+          qtdVoltasTraseira,
+          pressaoLixado,
+          pressaoLapidado,
+
+          velocidadeSalto,
+          velocidadeProcessamento,
+          intensidade,
+          frequencia,
+          temperaturaLavadora,
+          superficie,
+          metal,
+          raio,
+          tipo,
+          gravacao,
+
+          rvm,
+          rvmRaio,
+          rvmMin,
+          rvmMax,
+        })
+        .subscribe((parametro) => {
+          try {
+            this.router.navigate(['/']);
+            this._snackBar.open('Parâmetro lançado!', 'X', {
+              horizontalPosition: 'right',
+              verticalPosition: 'top',
+              duration: 3000,
+            });
+          } catch (error) {
+            console.log('Algo errado aconteceu...', error);
+          }
+        });
+    }
+  }
+
+  onBack() {
+    this.router.navigate(['/']);
   }
 }
