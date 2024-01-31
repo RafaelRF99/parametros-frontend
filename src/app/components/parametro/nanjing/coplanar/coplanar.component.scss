@@ -2,4 +2,29 @@
     overflow-x: auto;
     padding: 1rem 0;
 
+    table {
+    
+        .frase {
+            max-width: 120px;
+        }
+        
+        .limite {
+            max-width: 100px;
+            width: 100px;
+        }
+    }
+
+}
+
+
+
+@media (max-width: 700px) {
+    .content {
+        table {
+            .limite {
+                max-width: 100px;
+                width: 80px;
+            }
+        }
+    }
 }
