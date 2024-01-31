@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 import { IParametro } from '../interfaces/IParametro';
 import { INJ } from '../interfaces/INJ';
 import { TokenService } from './token.service';
+import { IYG } from '../interfaces/IYG';
 
 @Injectable({
   providedIn: 'root',
@@ -66,5 +67,14 @@ export class ParametrosService {
     );
 
     return this.http.post<INJ>(this.apiUrl, parametro, { headers });
+  }
+
+  createYG(parametro: IYG): Observable<IYG> {
+    const headers = new HttpHeaders().set(
+      'x-access-token',
+      localStorage.getItem('token') || ''
+    );
+
+    return this.http.post<IYG>(this.apiUrl, parametro, { headers });
   }
 }

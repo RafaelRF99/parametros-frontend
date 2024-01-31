@@ -29,6 +29,7 @@ import { BtnOptionsComponent } from './components/btn-options/btn-options.compon
 import { LancamentoComponent } from './pages/lancamento/lancamento.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CoplanarComponent } from './components/parametro/nanjing/coplanar/coplanar.component';
+import { YangGuanLaunchComponent } from './components/parametro/launch/yang-guan-launch/yang-guan-launch.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { CoplanarComponent } from './components/parametro/nanjing/coplanar/copla
     HomeComponent,
     BtnOptionsComponent,
     CoplanarComponent,
+    YangGuanLaunchComponent,
   ],
   imports: [
     BrowserModule,
