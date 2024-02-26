@@ -1,4 +1,4 @@
 export const environment = {
-  apiUrl: 'https://parametros-backend-production.up.railway.app/parametro',
-  apiAdmin: 'https://parametros-backend-production.up.railway.app/admin',
+  apiUrl: 'https://parametros-backend.onrender.com/parametro',
+  apiAdmin: 'https://parametros-backend.onrender.com/admin',
 };
